@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #F0F2FF;
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card-hover {
+  transition: border-color 0.18s, background 0.18s;
+  cursor: default;
+}
+.card-hover:hover {
+  border-color: #bfdbfe !important;
+  background: #eff6ff !important;
+}
+.card-hover:hover .card-title {
+  color: #1d4ed8;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(52px);
+  transition: opacity 0.72s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.72s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hero entrance (runs once on load) ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+.hero-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.75s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.hero-fade-right {
+  opacity: 0;
+  animation: fadeRight 0.75s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.delay-0  { animation-delay: 0s;    }
+.delay-1  { animation-delay: 0.12s; }
+.delay-2  { animation-delay: 0.24s; }
+.delay-3  { animation-delay: 0.36s; }
+.delay-4  { animation-delay: 0.50s; }
+.delay-5  { animation-delay: 0.64s; }
+
+/* ── Mobile responsive ── */
+@media (max-width: 768px) {
+  /* Navbar */
+  .nav-links-desktop { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+  .nav-mobile-drawer {
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 8px 20px 16px;
+    z-index: 49;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  /* Hero */
+  .hero-layout {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 28px !important;
+    padding: 96px 20px 56px !important;
+  }
+  .hero-text { text-align: center !important; }
+  .hero-title { font-size: 36px !important; }
+  .hero-photo { align-self: auto !important; }
+  .hero-photo-wrap { width: 160px !important; }
+  .hero-actions { justify-content: center !important; }
+
+  /* Section padding */
+  .section-inner { padding: 48px 20px !important; }
+
+  /* Cards */
+  .card-row {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .card-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+  .card-date { margin-left: 0 !important; }
+
+  /* Skills category label */
+  .skill-category { min-width: 60px !important; font-size: 11px !important; }
+}
