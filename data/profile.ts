@@ -83,15 +83,19 @@ export const profile = {
       bullets: [
         {
           en: "Reproduced the Contour Proposal Network (CPN) cell instance segmentation algorithm; surveyed U-Net and Mask R-CNN baselines; built image preprocessing, model inference, and visualization pipeline using PyTorch and the celldetection framework; implemented feature extraction, contour regression, and NMS modules",
-          zh: "复现 Contour Proposal Network（CPN）细胞实例分割算法，调研 U-Net、Mask R-CNN 等主流方法，基于 PyTorch 与 celldetection 实现显微图像预处理、模型推理与可视化 pipeline；实现特征提取、轮廓回归与 NMS 等核心模块",
+          zh: "系统调研 CPN、U-Net、Mask R-CNN 等主流生物医学实例分割算法，深入理解 CPN 基于傅里叶描述符的轮廓回归机制，对比分析其相较于 mask-based 方法的技术特性与适用场景",
         },
         {
           en: "Deployed deep learning environment on HZDR HPC cluster; configured GPU training jobs and completed model training and performance evaluation; tuned batch size, learning rate, and inference parameters across multiple microscopy datasets; authored technical report summarizing CPN's strengths and limitations for cell instance segmentation",
-          zh: "在 HZDR HPC 高性能计算集群部署深度学习实验环境，配置 GPU 训练任务并完成模型训练与性能评估；调整 batch size、学习率及推理参数，在多组显微图像数据上完成实验验证，并输出技术报告总结 CPN 的优势与局限",
+          zh: "基于 celldetection 框架将 CpnU22 模型适配至研究所公有显微图像数据集，完成 percentile 归一化、Albumentations 数据增强与数据集划分，实现数据预处理全流程",
+        },
+        {
+          en: "Deployed deep learning environment on HZDR HPC cluster; configured GPU training jobs and completed model training and performance evaluation; tuned batch size, learning rate, and inference parameters across multiple microscopy datasets; authored technical report summarizing CPN's strengths and limitations for cell instance segmentation",
+          zh: "调节学习率、batch size、NMS 阈值、傅里叶阶数等超参数，结合 loss 曲线与多 IoU 阈值下的平均 F1 指标评估模型性能，并在 HPC 集群完成训练、推理与实验验证",
         },
       ],
-      highlight: { en: "Completed CPN model reproduction and segmentation experiments on million-scale microscopy datasets", zh: "在万级细胞实例显微图像数据集上完成 CPN 模型复现与分割实验" },
-      tags: ["PyTorch", "Instance Segmentation", "HPC", "Computer Vision"],
+      highlight: { en: "Completed CPN model reproduction and segmentation experiments on million-scale microscopy datasets", zh: "完成 CPN 适配与显微图像分割端到端实验流程" },
+      tags: ["Python", "PyTorch", "Computer Vision", "Instance Segmentation", "Contour Proposal Network", "HPC"],
     },
     {
       logo: "IWU",
@@ -104,19 +108,19 @@ export const profile = {
       bullets: [
         {
           en: "Developed an LLM-based intelligent document retrieval and QA prototype; built a document parsing and knowledge organization pipeline to unify 400k+ scattered research documents, enabling natural-language access to technical knowledge across technical reports, papers, and project files",
-          zh: "开发基于大语言模型的科研文档智能检索与问答系统原型，构建文档解析与知识组织流程，实现四十万级技术报告、论文及项目文档的统一索引与语义检索，支持研究人员通过自然语言快速获取相关技术信息",
+          zh: "开发基于大语言模型的科研文档智能检索与问答系统原型，实现 PDF/Word 批量解析、文本清洗、分块与向量化，采用语义分句 + 重叠滑动窗口优化分块策略，缓解长文档语义断裂问题，召回准确率提升 15%",
         },
         {
           en: "Built document processing and embedding pipeline using Python and HuggingFace Transformers, covering PDF parsing, text chunking, and vectorization; integrated Sentence-Transformers for semantic vector indexing, achieving query response time < 500ms",
-          zh: "基于 Python 与 HuggingFace Transformers 构建文档处理与嵌入生成 pipeline，实现 PDF 自动解析、文本切分与向量化；结合 Sentence-Transformers 构建语义向量索引，在科研文档问答场景中实现查询响应时间 < 500ms",
+          zh: "构建 BM25 稀疏检索 + 稠密向量检索混合召回策略，弥补纯语义检索漏召短板，Top5 命中率从 72% 提升至 91%；结合重排序机制过滤无关片段，上下文质量有效提升",
         },
         {
           en: "Designed Hybrid Retrieval (BM25 + Vector Search) strategy with Prompt Engineering to optimize LLM inference; achieved technical QA accuracy > 87% in machine tool manufacturing and forming technology domains",
-          zh: "设计 Hybrid Retrieval（BM25 + 向量检索）策略并结合 Prompt Engineering 优化 LLM 推理效果，在机床制造与成形技术领域问答测试中实现技术问答准确率 > 87%",
+          zh: "通过 Prompt Engineering 约束模型仅依据检索上下文作答，降低幻觉风险；系统支持私有化部署，问答准确率提升 35%，平均响应耗时控制在 1s 内，显著提升内部文档检索效率",
         },
       ],
-      highlight: { en: "Technical QA accuracy >87% in machine tool manufacturing domain · query response <500ms", zh: "在机床制造领域技术问答准确率 >87%，查询响应时间 <500ms" },
-      tags: ["RAG", "HuggingFace", "BM25", "Vector Search", "LLM", "Prompt Engineering"],
+      highlight: { en: "Technical QA accuracy >87% in machine tool manufacturing domain · query response <500ms", zh: "问答准确率提升 35%，平均响应耗时控制在 1s 内，Top5 命中率从 72% 提升至 91%" },
+      tags: ["Python", "LangChain", "RAG", "BM25", "Chroma", "Prompt Engineering", "Cross-Encoder Re-ranker"],
     },
     {
       logo: "TUD",
@@ -129,19 +133,19 @@ export const profile = {
       bullets: [
         {
           en: "Built a dataset of 8,000+ OCT B-scan images for additive manufacturing quality monitoring; analyzed structural differences in PA12 and PLA materials; designed feature extraction using sliding window analysis and Z-score anomaly detection to provide a stable data foundation for defect detection models",
-          zh: "构建 8000+ 张 OCT B-scan 图像数据集用于增材制造在线质量监测研究，分析 PA12 与 PLA 材料结构差异，设计基于滑动窗口分析与 Z-score 异常检测的特征提取方法，为深度学习缺陷检测模型提供稳定的数据基础",
+          zh: "针对增材制造 OCT 断层图像，完成滑动窗口异常检测、Mask 生成、直方图匹配与 Block 式数据集划分，实现 Good/Bad 二分类自动标注",
         },
         {
           en: "Developed complete OCT image analysis pipeline (preprocessing → feature extraction → model training); used morphological operations and mask generation for defect localization; implemented binary quality classification (Good/Bad) with ResNet26-V2 CNN, outperforming EfficientNet-B0 and VGG16 across multiple metrics",
-          zh: "开发完整 OCT 图像分析 pipeline（数据预处理 → 特征提取 → 模型训练），通过形态学操作与 Mask 生成实现缺陷区域定位，基于 ResNet26-V2 CNN 实现产品质量二分类（Good/Bad），在多项指标上优于 EfficientNet-B0 与 VGG16",
+          zh: "基于 ResNet26-V2 搭建轻量化分类模型，设计 BottleneckV2 残差结构，完成网络宽度系数 K、模块数 N、Dropout、学习率等超参数优化",
         },
         {
           en: "Achieved accuracy 94.34%, recall 93.03%, precision 92.42%, F1 94.34%; ResNet26-V2 has only 3.5M parameters — significantly fewer than EfficientNet-B0 (5.3M) and VGG16 (138M) — demonstrating high detection accuracy with improved computational efficiency",
-          zh: "模型准确率 94.34%、召回率 93.03%、精确率 92.42%、F1-score 94.34%；ResNet26-V2 仅 3.5M 参数，显著低于 EfficientNet-B0（5.3M）与 VGG16（138M），在保证检测精度的同时大幅提升计算效率与部署可行性",
+          zh: "使用 t-SNE 与 Grad-CAM 完成模型可解释性分析，最终二分类准确率 94.34%，实现增材制造过程内部缺陷实时监测与质量分类",
         },
       ],
-      highlight: { en: "Accuracy 94.34% · Recall 93.03% · F1 94.34% · only 3.5M params vs EfficientNet-B0 (5.3M) & VGG16 (138M)", zh: "准确率 94.34%、召回率 93.03%、F1 94.34%，仅 3.5M 参数，显著优于 EfficientNet-B0（5.3M）与 VGG16（138M）" },
-      tags: ["CNN", "ResNet", "PyTorch", "Supervised Learning", "Computer Vision"],
+      highlight: { en: "Accuracy 94.34% · Recall 93.03% · F1 94.34% · only 3.5M params vs EfficientNet-B0 (5.3M) & VGG16 (138M)", zh: "最终二分类准确率 94.34%，实现增材制造过程内部缺陷实时监测与质量分类" },
+      tags: ["Python", "PyTorch", "Computer Vision", "Supervised Learning", "CNN", "t-SNE"],
     },
   ],
   projects: [
@@ -151,25 +155,25 @@ export const profile = {
       logoBg: "#26215C",
       logoColor: "#CECBF6",
       badge: { en: "M.Sc. Thesis", zh: "硕士论文" },
-      title: { en: "Multimodal Video AI Pipeline", zh: "多模态 AI 视频内容理解与摘要系统" },
-      org: { en: "ScaDS.AI Dresden / Leipzig", zh: "ScaDS.AI 德累斯顿/莱比锡" },
-      period: "2026.02 – present",
+      title: { en: "Multimodal Video AI Pipeline", zh: "基于多模态AI的视频内容理解与自动摘要生成系统" },
+      org: { en: "ScaDS.AI Dresden / Leipzig", zh: "可扩展数据分析与人工智能中心（ScaDS.AI）德累斯顿/莱比锡" },
+      period: "2026.04 – 至今",
       bullets: [
         {
           en: "Designed and implemented an end-to-end multimodal video analysis pipeline; automated data acquisition, audio extraction, and content parsing from video URLs — covering transcription, keyframe detection, scene segmentation, and semantic sectioning to provide structured data for long-form video understanding",
-          zh: "设计并实现端到端多模态视频分析流程，从视频 URL 自动完成数据获取、音频提取与内容解析，实现视频下载、语音转录、关键帧检测、场景分割与语义分段等自动化处理步骤，为长视频内容理解提供结构化数据基础",
+          zh: "设计并实现端到端多模态视频分析流程，从视频 URL 自动完成数据获取、音视频提取与内容解析，实现关键帧提取、场景分割与语义分段，为长视频理解构建结构化数据基础",
         },
         {
           en: "Integrated multimodal AI models for video semantic understanding: Whisper (speech-to-text), CLIP/BLIP (visual semantics), OCR (text recognition), and Speaker Diarization — performing joint analysis across audio, visual, and subtitle streams to build structured semantic representations",
-          zh: "集成多模态 AI 模型实现视频语义理解，结合 Whisper（语音识别转录）、CLIP/BLIP（视觉语义理解）、OCR（文本识别）以及 Speaker Diarization（发言人识别），对视频中的语音、画面与字幕信息进行联合分析，构建结构化视频语义表示",
+          zh: "集成 Whisper 语音转写、CLIP/BLIP 视觉语义理解、OCR 文本识别与说话人分离技术，对音视频信息进行跨模态联合分析，构建结构化视频语义表示",
         },
         {
           en: "Used LLMs (GPT series) to auto-generate narrative video summaries with Semantic Sectioning and Automatic Chaptering, breaking long videos into thematic segments with narrated summaries — improving accessibility and comprehension of public information such as parliamentary meeting recordings",
-          zh: "基于 LLM（GPT 系列）实现视频内容自动摘要生成，通过语义分段与自动章节划分将长视频拆分为多个主题片段，生成叙事式摘要与自动语音解说，从而提升政府会议视频等公共信息的可访问性与理解效率",
+          zh: "基于大语言模型实现视频内容自动摘要生成，结合语义分段与自动章节划分，将长视频划分为主题片段并生成叙事式摘要与解说，提升公共视频信息的可访问性与理解效率",
         },
       ],
-      highlight: { en: "Auto-generates narrative summaries & TTS narration for parliamentary meeting videos", zh: "自动生成叙事式摘要与语音解说，提升政府会议视频的可访问性" },
-      tags: ["Whisper", "CLIP", "BLIP", "GPT", "Pyannote", "Multimodal AI"],
+      highlight: { en: "Auto-generates narrative summaries & TTS narration for parliamentary meeting videos", zh: "自动生成叙事式摘要与语音解说，提升公共视频信息的可访问性" },
+      tags: ["Python", "Whisper", "CLIP", "BLIP", "GPT", "OCR", "Pyannote", "Speaker Diarization", "LLaMA"],
       tagBlue: true,
     },
     {
@@ -178,25 +182,25 @@ export const profile = {
       logoBg: "#3B6D11",
       logoColor: "#EAF3DE",
       badge: null,
-      title: { en: "Enterprise NLP QA System", zh: "企业知识管理与智能问答系统" },
-      org: { en: "FSD Fahrzeugsystemdaten GmbH", zh: "FSD 车辆系统数据有限公司" },
+      title: { en: "Enterprise NLP QA System", zh: "基于NLP与大语言模型的企业信息检索与知识抽取系统开发" },
+      org: { en: "FSD Fahrzeugsystemdaten GmbH", zh: "FSD车辆系统数据有限公司" },
       period: "2024.05 – 2024.09",
       bullets: [
         {
           en: "Co-developed an LLM-based enterprise knowledge management and QA system for FSD Fahrzeugsystemdaten GmbH; unified semantic retrieval and QA over 30,000+ automotive technical documents and system specifications",
-          zh: "参与开发基于大语言模型的企业知识管理与智能问答系统，面向 FSD 内部技术文档与汽车系统知识库，实现 30000+ 企业技术文档与系统规范的统一索引与语义检索",
+          zh: "基于 Django 框架独立完成企业 AI 助手 Web 界面开发，实现用户认证、聊天历史管理、文档上传与知识问答模块，搭建 6+ 核心功能页面，支持多角色权限与多用户并发访问",
         },
         {
           en: "Led web system architecture and core module development using Django; built a full-stack application with user authentication, chat history, document management, and admin panel (6+ modules); designed LLM service interface for efficient integration with the web application",
-          zh: "负责 Web 系统架构设计与核心模块开发，基于 Django 构建前后端分离应用，实现用户认证、聊天历史管理、文档管理与管理员后台等 6+ 核心功能模块，并设计 LLM 服务接口与 Web 应用高效集成",
+          zh: "参与 RAG 检索流程开发，协助完成技术文档解析、文本分块与向量化，配合团队实现 Elasticsearch 索引构建，优化检索链路，使 Top-5 文档命中率提升至 80%+",
         },
         {
           en: "Built RAG semantic retrieval and multi-tool Agent inference pipeline using LangChain and Elasticsearch; integrated LLaMA and Mistral LLMs for bilingual (DE/EN) technical QA; applied LoRA domain fine-tuning to improve automotive knowledge comprehension; achieved Top-5 document hit rate > 80% via Vector RAG",
-          zh: "构建 RAG 语义检索与多工具 Agent 推理流程，基于 LangChain 与 Elasticsearch 实现文档向量化与语义检索；集成 LLaMA 与 Mistral 支持德英双语问答，采用 LoRA 进行领域微调；通过 Vector RAG 增强上下文检索，实现 Top-5 文档命中率 > 80%",
+          zh: "参与前后端接口联调与系统集成测试，对接 LLM 服务接口，保障 Web 应用与问答系统稳定交互，支撑万级份企业技术文档的统一检索服务",
         },
       ],
-      highlight: { en: "Bilingual DE/EN QA · Top-5 document hit rate >80% · 30,000+ docs indexed", zh: "支持德英双语问答，Top-5 文档命中率 >80%，索引 30000+ 企业技术文档" },
-      tags: ["Django", "LangChain", "LLaMA", "Mistral", "LoRA", "RAG", "Agent"],
+      highlight: { en: "Bilingual DE/EN QA · Top-5 document hit rate >80% · 30,000+ docs indexed", zh: "Top-5 文档命中率提升至 80%+，支撑万级企业技术文档统一检索服务" },
+      tags: ["Python", "Django", "LangChain", "Elasticsearch", "LLM", "RAG", "LLaMA", "Mistral"],
       tagBlue: false,
     },
     {
@@ -205,25 +209,25 @@ export const profile = {
       logoBg: "#185FA5",
       logoColor: "#E6F1FB",
       badge: null,
-      title: { en: "OCT Image Clustering & Feature Analysis", zh: "OCT 图像结构特征提取与聚类分析" },
+      title: { en: "OCT Image Clustering & Feature Analysis", zh: "基于深度学习的 OCT 图像结构特征提取与聚类分析" },
       org: { en: "TU Dresden · Institute of Mechatronics", zh: "德累斯顿工业大学 机电工程研究所" },
       period: "2025.03 – 2025.07",
       bullets: [
         {
           en: "Built an additive manufacturing quality monitoring dataset from 8,000+ OCT B-scan images; designed preprocessing pipeline including binary mask generation, morphological enhancement, Spline curve filtering, and ROI extraction to provide high-quality inputs for feature learning",
-          zh: "基于 8000+ 张 OCT B-scan 图像构建增材制造质量监测数据集，设计完整图像处理流程，包括二值掩膜生成、形态学增强、Spline 曲线过滤与 ROI 提取等预处理步骤，为深度学习特征学习提供高质量输入数据",
+          zh: "基于 8000+ 张 OCT B-scan 图像构建增材制造质量监测数据集，设计包含二值化、形态学增强、样条曲线 ROI 提取的完整预处理流程，有效抑制工业图像噪声，为模型提供高质量输入数据",
         },
         {
           en: "Designed and implemented a convolutional autoencoder for unsupervised feature learning, compressing 224×224 binary structural images to a 128-dim latent space; evaluated latent dimension, Dropout, and learning rate; applied PCA + K-Means for structural pattern recognition with block-based data splitting to prevent information leakage",
-          zh: "设计并实现卷积自编码器无监督特征学习模型，将 224×224 二值结构图像压缩为 128 维潜在空间特征表示，系统评估潜在维度、Dropout 及学习率等关键超参数；通过 PCA 降维与 K-Means 聚类实现结构模式识别，采用 block-based 数据划分策略避免相邻 B-scan 数据的信息泄露",
+          zh: "设计并实现卷积自编码器无监督特征学习模型，将 224×224 图像压缩至 128 维潜在特征空间；通过调优 Dropout、学习率等关键超参数，其在结构分离任务中的轮廓系数达到 0.9101，显著优于 ResNet50、VGG16 等预训练 CNN 模型",
         },
         {
           en: "Autoencoder outperformed pretrained CNNs in structural separation: silhouette score at K=2 reached 0.9101 (vs. ResNet50: 0.7878, EfficientNet-B0: 0.8123, VGG16: 0.6785); Calinski-Harabasz index ~9.2×10⁴, Davies-Bouldin ~0.20; t-SNE and KDE visualizations confirmed latent-space structural separability",
-          zh: "自编码器在结构分离任务中优于 ResNet50、VGG16 与 EfficientNet-B0，K=2 时轮廓系数达 0.9101（ResNet50：0.7878，EfficientNet-B0：0.8123，VGG16：0.6785）；Calinski-Harabasz 指数约 9.2×10⁴，Davies-Bouldin 指数约 0.20；通过 t-SNE 与 KDE 可视化验证潜在空间特征的结构可分性",
+          zh: "采用 PCA 降维与 K-Means 聚类实现结构模式识别，获得 Calinski-Harabasz 指数约 9.2×10⁴、Davies-Bouldin 指数低至 0.20，并通过 t-SNE 与 KDE 可视化验证特征可分性，为无标注工业缺陷检测提供有效方案",
         },
       ],
-      highlight: { en: "Silhouette score 0.9101 at K=2 · C-H ~9.2×10⁴ · D-B ~0.20 · outperforms ResNet50, EfficientNet-B0, VGG16", zh: "K=2 时轮廓系数 0.9101，C-H 指数约 9.2×10⁴，D-B 指数约 0.20，优于 ResNet50、EfficientNet-B0 与 VGG16" },
-      tags: ["Autoencoder", "PCA", "K-Means", "t-SNE", "Unsupervised Learning"],
+      highlight: { en: "Silhouette score 0.9101 at K=2 · C-H ~9.2×10⁴ · D-B ~0.20 · outperforms ResNet50, EfficientNet-B0, VGG16", zh: "轮廓系数 0.9101，C-H 指数约 9.2×10⁴，D-B 指数低至 0.20，为无标注工业缺陷检测提供有效方案" },
+      tags: ["Python", "PyTorch", "Autoencoder", "Computer Vision", "Unsupervised Learning", "PCA", "K-Means", "t-SNE"],
       tagBlue: false,
     },
   ],
