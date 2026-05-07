@@ -46,6 +46,7 @@ const Label = ({ children }: { children: React.ReactNode }) => (
 
 export default function Hero({ lang }: Props) {
   const email = lang === "zh" ? profile.contact.emailCN : profile.contact.email
+  const cvHref = typeof profile.contact.cv === "string" ? profile.contact.cv : profile.contact.cv[lang]
 
   return (
     <>
@@ -149,7 +150,7 @@ export default function Hero({ lang }: Props) {
                     <IconEmail />
                   </a>
                 </div>
-                <a href={profile.contact.cv} download className="hero-cv-btn">
+                <a href={encodeURI(cvHref)} download className="hero-cv-btn">
                   <IconDownload />
                   {lang === "en" ? "Download CV" : "下载简历"}
                 </a>

@@ -12,7 +12,10 @@ export const profile = {
     instagram: "https://www.instagram.com/xiaohu_0801/",
     email: "mengqinghu688@gmail.com",
     emailCN: "mengqinghu688@163.com",
-    cv: "/cv/CV_Mengqing_Hu.pdf",
+    cv: {
+      en: "/cv/Mengqing Hu_TU Dresden_01623382989.pdf",
+      zh: "/cv/胡梦晴_德累斯顿工业大学_17549200183.pdf",
+    },
   },
   strengths: [
     {
