@@ -58,9 +58,9 @@ export default function Projects({ lang }: Props) {
                     {proj.tags.map(tag => (
                       <span key={tag} style={{
                         fontSize: "12px", padding: "3px 10px", borderRadius: "99px",
-                        background: proj.tagBlue ? "#EFF6FF" : "#f9fafb",
-                        border: `1px solid ${proj.tagBlue ? "#BFDBFE" : "#e5e7eb"}`,
-                        color: proj.tagBlue ? "#1D4ED8" : "#6b7280"
+                        background: "#f9fafb",
+                        border: "1px solid #e5e7eb",
+                        color: "#6b7280"
                       }}>{tag}</span>
                     ))}
                   </div>
