@@ -57,7 +57,7 @@ export const profile = {
       schoolSub: "QS 218",
       degree: { en: "M.Sc. Computer Modeling & Simulation · Visual Computing", zh: "计算机建模与仿真（视觉计算方向）硕士" },
       period: "2023.10 – 2026.11",
-      detail: { en: "GPA 2.9 (Top 25%) · ML · Computer Vision · LLMs · Knowledge Graph", zh: "GPA 2.9（前 25%）· 机器学习 · 计算机视觉 · 大语言模型 · 知识图谱" },
+      detail: { en: "Machine Learning · Computer Vision · LLMs · Knowledge Graph", zh: "机器学习 · 计算机视觉 · 大语言模型 · 知识图谱" },
     },
     {
       logo: "HNU",
@@ -83,12 +83,15 @@ export const profile = {
       bullets: [
         {
           en: "Conducted a comprehensive survey of mainstream biomedical instance segmentation algorithms such as CPN, U-Net and Mask R-CNN, gained an in-depth understanding of CPN's contour regression mechanism based on Fourier descriptors, and conducted a comparative analysis of its technical characteristics and applicable scenarios relative to mask-based methods.",
+          zh: "系统调研 CPN、U-Net、Mask R-CNN 等主流生物医学实例分割算法，深入理解 CPN 基于傅里叶描述符的轮廓回归机制，对比分析其相较于 mask-based 方法的技术特性与适用场景",
         },
         {
           en: "Adapted the CpnU22 model to the institute's public microscopy image dataset using the celldetection framework, executed percentile normalization, Albumentations-based data augmentation and dataset splitting to complete the entire data preprocessing pipeline.",
+          zh: "基于 celldetection 框架将 CpnU22 模型适配至研究所公有显微图像数据集，完成 percentile 归一化、Albumentations 数据增强与数据集划分，实现数据预处理全流程",
         },
         {
           en: "Tuned hyperparameters including learning rate, batch size, NMS threshold and Fourier order, evaluated model performance by analyzing loss curves and average F1 scores across multiple IoU thresholds, and executed model training, inference and experimental validation on an HPC cluster.",
+          zh: "调节学习率、batch size、NMS 阈值、傅里叶阶数等超参数，结合 loss 曲线与多 IoU 阈值下的平均 F1 指标评估模型性能，并在 HPC 集群完成训练、推理与实验验证",
         },
       ],
       highlight: { en: "Completed CPN adaptation and end-to-end microscopy segmentation experiments", zh: "完成 CPN 适配与显微图像分割端到端实验流程" },
@@ -105,12 +108,15 @@ export const profile = {
       bullets: [
         {
           en: "Developed an intelligent retrieval and Q&A system for research documents based on Large Language Models (LLMs), enabled batch parsing of PDF and Word files, text cleaning, chunking and vectorization. Employed a chunking strategy optimized via semantic sentence splitting + overlapping sliding windows to mitigate semantic fragmentation issues in long documents, resulting in a 15% improvement in retrieval recall accuracy.",
+          zh: "开发基于大语言模型的科研文档智能检索与问答系统原型，实现 PDF/Word 批量解析、文本清洗、分块与向量化，采用语义分句 + 重叠滑动窗口优化分块策略，缓解长文档语义断裂问题，召回准确率提升 15%",
         },
         {
           en: "Constructed a hybrid recall strategy combining BM25 sparse retrieval with dense vector retrieval to address the limitations of pure semantic retrieval, boosted the Top-5 hit rate from 72% to 91%. Integrated a re-ranking mechanism to filter out irrelevant snippets, thereby effectively enhancing the quality of the generated context.",
+          zh: "构建 BM25 稀疏检索 + 稠密向量检索混合召回策略，弥补纯语义检索漏召短板，Top5 命中率从 72% 提升至 91%；结合重排序机制过滤无关片段，上下文质量有效提升",
         },
         {
           en: "Utilized Prompt Engineering to constrain the model to generate responses solely based on the retrieved context, thereby mitigating the risk of hallucinations. Supported private deployment, achieved a 35% improvement in Q&A accuracy while maintaining an average response time of under 1 second, significantly boosting the efficiency of internal document retrieval.",
+          zh: "通过 Prompt Engineering 约束模型仅依据检索上下文作答，降低幻觉风险；系统支持私有化部署，问答准确率提升 35%，平均响应耗时控制在 1s 内，显著提升内部文档检索效率",
         },
       ],
       highlight: { en: "Q&A accuracy improved by 35% with average response time under 1 second", zh: "问答准确率提升 35%，平均响应耗时控制在 1s 内，Top5 命中率从 72% 提升至 91%" },
@@ -127,12 +133,15 @@ export const profile = {
       bullets: [
         {
           en: "Implemented sliding-window anomaly detection, mask generation, histogram matching and block-based dataset partitioning for OCT tomographic images in additive manufacturing to achieve automated binary classification labeling (Good/Bad).",
+          zh: "针对增材制造 OCT 断层图像，完成滑动窗口异常检测、Mask 生成、直方图匹配与 Block 式数据集划分，实现 Good/Bad 二分类自动标注",
         },
         {
           en: "Built a lightweight classification model based on ResNet26-V2, designed a BottleneckV2 residual structure, and optimized hyperparameters including network width coefficient K, number of modules N, Dropout rate and learning rate.",
+          zh: "基于 ResNet26-V2 搭建轻量化分类模型，设计 BottleneckV2 残差结构，完成网络宽度系数 K、模块数 N、Dropout、学习率等超参数优化",
         },
         {
           en: "Performed model interpretability analysis using t-SNE and Grad-CAM; achieved a final binary classification accuracy of 94.34%, enabling real-time monitoring of internal defects and quality classification within the additive manufacturing process.",
+          zh: "使用 t-SNE 与 Grad-CAM 完成模型可解释性分析，最终二分类准确率 94.34%，实现增材制造过程内部缺陷实时监测与质量分类",
         },
       ],
       highlight: { en: "Final binary classification accuracy reached 94.34%", zh: "最终二分类准确率 94.34%，实现增材制造过程内部缺陷实时监测与质量分类" },
@@ -224,51 +233,43 @@ export const profile = {
   ],
   skills: [
     {
-      category: { en: "AI & LLM", zh: "AI 与大语言模型" },
+      category: { en: "AI & Large Models", zh: "AI 与大模型" },
       items: [
+        { name: "RAG", iconBg: "#0EA5E9", iconText: "RAG" },
+        { name: "Prompt Engineering", iconBg: "#4F46E5", iconText: "PE" },
         { name: "LangChain", iconBg: "#1868F2", iconText: "LC" },
         { name: "LangGraph", iconBg: "#0F4DA3", iconText: "LG" },
-        { name: "RAG", iconBg: "#0EA5E9", iconText: "RAG" },
-        { name: "Whisper", iconBg: "#FF6B35", iconText: "W" },
-        { name: "Pyannote", iconBg: "#6366F1", iconText: "PA" },
-        { name: "TTS", iconBg: "#8B5CF6", iconText: "TTS" },
-        { name: "OCR", iconBg: "#059669", iconText: "OCR" },
-        { name: "HuggingFace", hf: true },
-      ],
-    },
-    {
-      category: { en: "CV & ML", zh: "计算机视觉与机器学习" },
-      items: [
         { name: "PyTorch", devicon: "pytorch" },
-        { name: "CNNs", iconBg: "#00ADEF", iconText: "CNN" },
-        { name: "Computer Vision", iconBg: "#185FA5", iconText: "CV" },
+        { name: "Scikit-learn", devicon: "scikitlearn" },
+        { name: "Chroma", iconBg: "#E15D44", iconText: "Chr" },
+        { name: "FAISS", iconBg: "#6B7280", iconText: "F" },
       ],
     },
     {
-      category: { en: "Backend", zh: "后端开发" },
+      category: { en: "Backend Development", zh: "后端开发" },
       items: [
         { name: "Python", devicon: "python" },
-        { name: "Java", devicon: "java" },
         { name: "FastAPI", devicon: "fastapi" },
         { name: "Django", devicon: "django" },
-        { name: "SpringBoot", iconBg: "#6DB33F", iconText: "SB" },
-      ],
-    },
-    {
-      category: { en: "Database", zh: "数据库" },
-      items: [
+        { name: "PostgreSQL", devicon: "postgresql" },
         { name: "MySQL", devicon: "mysql" },
         { name: "Redis", devicon: "redis" },
-        { name: "Elasticsearch", iconBg: "#FEC514", iconText: "ES" },
-        { name: "Chroma", iconBg: "#E15D44", iconText: "Chr" },
       ],
     },
     {
-      category: { en: "DevOps", zh: "开发与部署" },
+      category: { en: "Frontend Development", zh: "前端开发" },
       items: [
-        { name: "Docker", devicon: "docker" },
+        { name: "TypeScript", devicon: "typescript" },
+        { name: "React", devicon: "react" },
+        { name: "Next.js", devicon: "nextjs" },
+      ],
+    },
+    {
+      category: { en: "Engineering & Deployment", zh: "工程化与部署" },
+      items: [
         { name: "Git", devicon: "git" },
         { name: "Linux", devicon: "linux" },
+        { name: "Docker", devicon: "docker" },
         { name: "CI/CD", iconBg: "#374151", iconText: "CI" },
         { name: "Azure", devicon: "azure" },
       ],

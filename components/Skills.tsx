@@ -15,9 +15,14 @@ const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons"
 const deviconMap: Record<string, string> = {
   pytorch: `${DEVICON}/pytorch/pytorch-original.svg`,
   python: `${DEVICON}/python/python-original.svg`,
+  typescript: `${DEVICON}/typescript/typescript-original.svg`,
+  react: `${DEVICON}/react/react-original.svg`,
+  nextjs: `${DEVICON}/nextjs/nextjs-original.svg`,
   java: `${DEVICON}/java/java-original.svg`,
   fastapi: `${DEVICON}/fastapi/fastapi-original.svg`,
   django: `${DEVICON}/django/django-plain.svg`,
+  postgresql: `${DEVICON}/postgresql/postgresql-original.svg`,
+  scikitlearn: `${DEVICON}/scikitlearn/scikitlearn-original.svg`,
   mysql: `${DEVICON}/mysql/mysql-original.svg`,
   redis: `${DEVICON}/redis/redis-original.svg`,
   docker: `${DEVICON}/docker/docker-original.svg`,
@@ -28,101 +33,102 @@ const deviconMap: Record<string, string> = {
 
 const namedIconMap: Record<string, React.ReactElement> = {
   LangChain: (
-    <div style={{ width: 18, height: 18, borderRadius: 3, background: "#1C3C3C", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4FC08D" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+    <div style={{ width: 18, height: 18, borderRadius: 4, background: "#102A43", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8.5 12.5a4 4 0 0 1 0-5.7l1.8-1.8a4 4 0 0 1 5.7 0" />
+        <path d="M15.5 11.5a4 4 0 0 1 0 5.7l-1.8 1.8a4 4 0 0 1-5.7 0" />
+        <path d="M10 14l4-4" />
       </svg>
     </div>
   ),
   LangGraph: (
-    <div style={{ width: 18, height: 18, borderRadius: 3, background: "#1a1a2e", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round">
-        <circle cx="5" cy="5" r="2" fill="#818cf8"/>
-        <circle cx="19" cy="5" r="2" fill="#818cf8"/>
-        <circle cx="12" cy="19" r="2" fill="#818cf8"/>
-        <line x1="7" y1="5" x2="17" y2="5"/>
-        <line x1="6" y1="7" x2="11" y2="17"/>
-        <line x1="18" y1="7" x2="13" y2="17"/>
+    <div style={{ width: 18, height: 18, borderRadius: 4, background: "#1e1b4b", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="6" cy="6" r="2" fill="#a78bfa" />
+        <circle cx="18" cy="6" r="2" fill="#a78bfa" />
+        <circle cx="12" cy="18" r="2" fill="#a78bfa" />
+        <path d="M8 7.2l2.4 7.1" />
+        <path d="M16 7.2l-2.4 7.1" />
+        <path d="M7.8 6.8h8.4" />
       </svg>
     </div>
   ),
   RAG: (
-    <div style={{ width: 18, height: 18, borderRadius: 3, background: "#1e3a5f", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <div style={{ width: 18, height: 18, borderRadius: 4, background: "#1e3a5f", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/>
-        <path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/>
+        <ellipse cx="12" cy="6" rx="7.5" ry="3" />
+        <path d="M4.5 6v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3V6" />
+        <path d="M4.5 12v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6" />
       </svg>
     </div>
   ),
   Whisper: (
     <div style={{ width: 18, height: 18, borderRadius: 3, background: "#7c3aed", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <svg width="11" height="12" viewBox="0 0 24 24" fill="none" stroke="#e9d5ff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-        <line x1="12" y1="19" x2="12" y2="22"/>
+        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+        <line x1="12" y1="19" x2="12" y2="22" />
       </svg>
     </div>
   ),
   Pyannote: (
     <div style={{ width: 18, height: 18, borderRadius: 3, background: "#0f4c81", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <svg width="12" height="10" viewBox="0 0 24 20" fill="none" stroke="#93c5fd" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="2,10 5,4 8,14 11,6 14,12 17,2 20,10 22,10"/>
+        <polyline points="2,10 5,4 8,14 11,6 14,12 17,2 20,10 22,10" />
       </svg>
     </div>
   ),
   TTS: (
     <div style={{ width: 18, height: 18, borderRadius: 3, background: "#065f46", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
       </svg>
     </div>
   ),
   OCR: (
     <div style={{ width: 18, height: 18, borderRadius: 3, background: "#78350f", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <svg width="11" height="12" viewBox="0 0 24 24" fill="none" stroke="#fde68a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <path d="M7 8h10M7 12h10M7 16h6"/>
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M7 8h10M7 12h10M7 16h6" />
       </svg>
     </div>
   ),
   SpringBoot: (
     <div style={{ width: 18, height: 18, borderRadius: 3, background: "#166534", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="#86efac">
-        <path d="M20.205 16.392c-2.469 3.289-7.741 2.179-11.122 2.338 0 0-.599.034-1.201.133 0 0 .228-.097.519-.198 2.374-.821 3.496-.986 4.939-1.727 2.71-1.388 5.408-4.413 5.957-7.555-1.032 3.022-4.17 5.623-7.027 6.679-1.955.722-5.492 1.424-5.492 1.424a5.38 5.38 0 0 1-.143-.076c-2.405-1.17-2.475-6.38 1.894-8.059 1.916-.736 3.748-.332 5.818-.825 2.208-.525 4.766-2.18 5.805-4.344 1.165 3.458 2.565 8.866.053 12.21zm1.76-14.342C20.93.971 18.452-.008 15.833 0 8.579.016 2.487 5.973 2.487 13.226c0 4.208 2.11 7.92 5.323 10.16L8.2 23.2c-2.498-1.988-4.088-5.01-4.088-8.396 0-5.984 4.832-10.843 10.808-10.843 2.982 0 5.694 1.21 7.669 3.181l-.624-5.092z"/>
+        <path d="M20.205 16.392c-2.469 3.289-7.741 2.179-11.122 2.338 0 0-.599.034-1.201.133 0 0 .228-.097.519-.198 2.374-.821 3.496-.986 4.939-1.727 2.71-1.388 5.408-4.413 5.957-7.555-1.032 3.022-4.17 5.623-7.027 6.679-1.955.722-5.492 1.424-5.492 1.424a5.38 5.38 0 0 1-.143-.076c-2.405-1.17-2.475-6.38 1.894-8.059 1.916-.736 3.748-.332 5.818-.825 2.208-.525 4.766-2.18 5.805-4.344 1.165 3.458 2.565 8.866.053 12.21zm1.76-14.342C20.93.971 18.452-.008 15.833 0 8.579.016 2.487 5.973 2.487 13.226c0 4.208 2.11 7.92 5.323 10.16L8.2 23.2c-2.498-1.988-4.088-5.01-4.088-8.396 0-5.984 4.832-10.843 10.808-10.843 2.982 0 5.694 1.21 7.669 3.181l-.624-5.092z" />
       </svg>
     </div>
   ),
   Elasticsearch: (
     <div style={{ width: 18, height: 18, borderRadius: 3, background: "#f7cd46", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <svg width="11" height="11" viewBox="0 0 24 24" fill="#343741">
-        <path d="M13.394 0C9.737 0 6.435 1.525 4.068 3.974h13.069a4.449 4.449 0 0 1 0 8.897H2.09A13.37 13.37 0 0 0 1.5 12c0 .69.055 1.367.16 2.026h15.477a4.449 4.449 0 1 1 0 8.897H4.065A13.31 13.31 0 0 0 13.394 24C20.848 24 27 18.627 27 12S20.848 0 13.394 0z"/>
+        <path d="M13.394 0C9.737 0 6.435 1.525 4.068 3.974h13.069a4.449 4.449 0 0 1 0 8.897H2.09A13.37 13.37 0 0 0 1.5 12c0 .69.055 1.367.16 2.026h15.477a4.449 4.449 0 1 1 0 8.897H4.065A13.31 13.31 0 0 0 13.394 24C20.848 24 27 18.627 27 12S20.848 0 13.394 0z" />
       </svg>
     </div>
   ),
   Chroma: (
     <div style={{ width: 18, height: 18, borderRadius: 3, background: "#f97316", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="9"/>
-        <circle cx="12" cy="12" r="4"/>
-        <line x1="12" y1="3" x2="12" y2="8"/>
-        <line x1="12" y1="16" x2="12" y2="21"/>
-        <line x1="3" y1="12" x2="8" y2="12"/>
-        <line x1="16" y1="12" x2="21" y2="12"/>
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="4" />
+        <line x1="12" y1="3" x2="12" y2="8" />
+        <line x1="12" y1="16" x2="12" y2="21" />
+        <line x1="3" y1="12" x2="8" y2="12" />
+        <line x1="16" y1="12" x2="21" y2="12" />
       </svg>
     </div>
   ),
   "CI/CD": (
     <div style={{ width: 18, height: 18, borderRadius: 3, background: "#1e293b", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 3 21 3 21 8"/>
-        <line x1="4" y1="20" x2="21" y2="3"/>
-        <polyline points="21 16 21 21 16 21"/>
-        <line x1="15" y1="15" x2="21" y2="21"/>
-        <line x1="4" y1="4" x2="9" y2="9"/>
+        <polyline points="16 3 21 3 21 8" />
+        <line x1="4" y1="20" x2="21" y2="3" />
+        <polyline points="21 16 21 21 16 21" />
+        <line x1="15" y1="15" x2="21" y2="21" />
+        <line x1="4" y1="4" x2="9" y2="9" />
       </svg>
     </div>
   ),
